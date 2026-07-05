@@ -21,8 +21,8 @@ export const env = {
   CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET as string,
 
   ADMIN_NAME: process.env.ADMIN_NAME || "Super Admin",
-  ADMIN_EMAIL: process.env.ADMIN_EMAIL || "admin@minierp.com",
-  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || "Admin123!",
+  ADMIN_EMAIL: process.env.ADMIN_EMAIL || "rakib@gmail.com",
+  ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || "admin1234",
 
   CLIENT_URL: process.env.CLIENT_URL || "http://localhost:5173",
 };
