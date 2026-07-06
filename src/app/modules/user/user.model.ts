@@ -53,5 +53,12 @@ userSchema.method(
     return bcrypt.compare(candidatePassword, this.password);
   },
 );
+// query-level exclusion.
+userSchema.set("toJSON", {
+  transform: (_doc, ret: any) => {
+    delete ret.password;
+    return ret;
+  },
+});
 
 export const User = model<IUser, UserModel>("User", userSchema);
