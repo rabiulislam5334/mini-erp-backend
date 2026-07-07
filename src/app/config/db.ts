@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 import { env } from "./env";
 
+let connectionPromise: Promise<typeof mongoose> | null = null;
+
 export const connectDB = async (): Promise<void> => {
-  try {
-    await mongoose.connect(env.DATABASE_URL);
-    console.log("✅ MongoDB connected successfully");
-  } catch (error) {
-    console.error("❌ MongoDB connection failed:", error);
-    process.exit(1);
+  if (mongoose.connection.readyState === 1) return;
+  if (!connectionPromise) {
+    connectionPromise = mongoose.connect(env.DATABASE_URL);
   }
+  await connectionPromise;
 };
